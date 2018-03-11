@@ -1,0 +1,362 @@
+class Screen extends React.Component {
+  render() {
+    return (
+      <div className='row'>
+        <h1 className='col card text-right numScreen'>0</h1>
+      </div>
+    );
+  }
+}
+
+class Buttons extends React.Component {
+  render() {
+    return (
+      <div>
+        <div className="row text-center">
+
+          <div className="col">
+            <button className="btn btn-outline-primary btn-lg" id="nine">9</button>
+            <button className="btn btn-outline-primary btn-lg" id="eight">8</button>
+            <button className="btn btn-outline-primary btn-lg" id="seven">7</button>
+            <button className="btn btn-outline-primary btn-lg" id="add">+</button>
+          </div>
+
+        </div>
+
+        <div className="row text-center">
+
+          <div className="col">
+            <button className="btn btn-outline-primary btn-lg" id="six">6</button>
+            <button className="btn btn-outline-primary btn-lg" id="five">5</button>
+            <button className="btn btn-outline-primary btn-lg" id="four">4</button>
+            <button className="btn btn-outline-primary btn-lg" id="subtract">-</button>
+          </div>
+
+        </div>
+
+        <div className="row text-center">
+
+          <div className="col">
+            <button className="btn btn-outline-primary btn-lg" id="three">3</button>
+            <button className="btn btn-outline-primary btn-lg" id="two">2</button>
+            <button className="btn btn-outline-primary btn-lg" id="one">1</button>
+            <button className="btn btn-outline-primary btn-lg" id="multiply">x</button>
+          </div>          
+
+        </div>
+
+        <div className="row text-center">
+          <div className="col">
+            <button className="btn btn-outline-primary btn-lg" id="zero">0</button>
+            <button className="btn btn-outline-primary btn-lg" id="clear">clear</button>
+            <button className="btn btn-outline-primary btn-lg" id="equal">=</button>
+            <button className="btn btn-outline-primary btn-lg" id="divide">/</button>
+          </div>          
+
+        </div>
+      </div>
+    );
+  }
+}
+
+class App extends React.Component {
+  render() {
+    return (
+      <div className='container jumbotron'>
+        <Screen />
+        <Buttons />
+      </div>
+    );
+  }
+}
+
+ReactDOM.render(
+  <App />,
+  document.getElementById('root')
+);
+
+/*
+Simple Calculator that can add, subtract, multiply, and divide two numbers, but can mostly chain operations together "num operator num equals result...result operator num equals result...etc"
+*/
+
+var main = function() {
+
+  var numbersLeft = [];
+  var numbersRight = [];
+
+  var numRight = 0;
+  var numLeft = 0;
+  // var result = 0
+
+  var nine = 9;
+  var eight = 8;
+  var seven = 7;
+  var six = 6;
+  var five = 5;
+  var four = 4;
+  var three = 3;
+  var two = 2;
+  var one = 1;
+  var zero = 0;
+
+  var adding = false;
+  var subtract = false;
+  var multiply = false;
+  var divide = false;
+
+  // Number Presses
+  $("#nine").click(function() {
+    if (adding == true ||
+        subtract == true ||
+        multiply == true ||
+        divide == true) {
+      numbersRight.push(nine);
+      numRight = +numbersRight.join('');
+      $(".numScreen").text(numRight);
+    } else {
+      numbersLeft.push(nine);
+      numLeft = +numbersLeft.join('');
+      $(".numScreen").text(numLeft);
+    }
+  });
+  $("#eight").click(function() {
+    if (adding == true ||
+        subtract == true ||
+        multiply == true ||
+        divide == true) {
+      numbersRight.push(eight);
+      numRight = +numbersRight.join('');
+      $(".numScreen").text(numRight);
+    } else {
+      numbersLeft.push(eight);
+      numLeft = +numbersLeft.join('');
+      $(".numScreen").text(numLeft);
+    }
+
+  });
+  $("#seven").click(function() {
+    if (adding == true ||
+        subtract == true ||
+        multiply == true ||
+        divide == true) {
+      numbersRight.push(seven);
+      numRight = +numbersRight.join('');
+      $(".numScreen").text(numRight);
+    } else {
+      numbersLeft.push(seven);
+      numLeft = +numbersLeft.join('');
+      $(".numScreen").text(numLeft);
+    }
+  });
+
+  $("#six").click(function() {
+    if (adding == true ||
+        subtract == true ||
+        multiply == true ||
+        divide == true) {
+      numbersRight.push(six);
+      numRight = +numbersRight.join('');
+      $(".numScreen").text(numRight);
+    } else {
+      numbersLeft.push(six);
+      numLeft = +numbersLeft.join('');
+      $(".numScreen").text(numLeft);
+    }
+  });
+  $("#five").click(function() {
+    if (adding == true ||
+        subtract == true ||
+        multiply == true ||
+        divide == true) {
+      numbersRight.push(five);
+      numRight = +numbersRight.join('');
+      $(".numScreen").text(numRight);
+    } else {
+      numbersLeft.push(five);
+      numLeft = +numbersLeft.join('');
+      $(".numScreen").text(numLeft);
+    }
+  });
+  $("#four").click(function() {
+    if (adding == true ||
+        subtract == true ||
+        multiply == true ||
+        divide == true) {
+      numbersRight.push(four);
+      numRight = +numbersRight.join('');
+      $(".numScreen").text(numRight);
+    } else {
+      numbersLeft.push(four);
+      numLeft = +numbersLeft.join('');
+      $(".numScreen").text(numLeft);
+    }
+  });
+  $("#three").click(function() {
+    if (adding == true ||
+        subtract == true ||
+        multiply == true ||
+        divide == true) {
+      numbersRight.push(three);
+      numRight = +numbersRight.join('');
+      $(".numScreen").text(numRight);
+    } else {
+      numbersLeft.push(three);
+      numLeft = +numbersLeft.join('');
+      $(".numScreen").text(numLeft);
+    }
+  });
+  $("#two").click(function() {
+    if (adding == true ||
+        subtract == true ||
+        multiply == true ||
+        divide == true) {
+      numbersRight.push(two);
+      numRight = +numbersRight.join('');
+      $(".numScreen").text(numRight);
+    } else {
+      numbersLeft.push(two);
+      numLeft = +numbersLeft.join('');
+      $(".numScreen").text(numLeft);
+    }
+  });
+  $("#one").click(function() {
+    if (adding == true ||
+        subtract == true ||
+        multiply == true ||
+        divide == true) {
+      numbersRight.push(one);
+      numRight = +numbersRight.join('');
+      $(".numScreen").text(numRight);
+    } else {
+      numbersLeft.push(one);
+      numLeft = +numbersLeft.join('');
+      $(".numScreen").text(numLeft);
+    }
+  });
+  $("#zero").click(function() {
+    if (adding == true ||
+        subtract == true ||
+        multiply == true ||
+        divide == true) {
+      numbersRight.push(zero);
+      numRight = +numbersRight.join('');
+      $(".numScreen").text(numRight);
+    } else {
+      numbersLeft.push(zero);
+      numLeft = +numbersLeft.join('');
+      $(".numScreen").text(numLeft);
+    }
+  });
+
+  // + - x / Operator Presses
+  $("#add").click(function() {
+    if (adding !== true) {
+      adding = true;
+      subtract = false;
+      multiply = false;
+      divide = false;
+    } else {
+      numLeft += numRight;
+      numRight = 0;
+      numbersLeft = [];
+      numbersRight = [];
+      $(".numScreen").text(numLeft);
+    }
+  });
+
+  $("#subtract").click(function() {
+    if (subtract !== true) {
+      subtract = true;
+      adding = false;
+      multiply = false;
+      divide = false;  
+    } else {
+      numLeft -= numRight;
+      numRight = 0;
+      numbersLeft = [];
+      numbersRight = [];
+      $(".numScreen").text(numLeft);
+    }
+  });
+
+  $("#multiply").click(function() {
+    if (multiply !== true) {
+      multiply = true;
+      adding = false;
+      subtract = false;
+      divide = false;    
+    } else {
+      numLeft *= numRight;
+      numRight = 0;
+      numbersLeft = [];
+      numbersRight = [];
+      $(".numScreen").text(numLeft);
+    }
+  });
+
+  $("#divide").click(function() {
+    if (divide !== true) {
+      divide = true;
+      adding = false;
+      subtract = false;
+      multiply = false;   
+    } else {
+      numLeft /= numRight;
+      numRight = 0;
+      numbersLeft = [];
+      numbersRight = [];
+      $(".numScreen").text(numLeft);
+    }
+
+  });
+
+
+  // Equals Operation
+  $("#equal").click(function() {
+    if (adding == true) {
+      // result = numRight + numLeft;
+      numLeft += numRight
+      $(".numScreen").text(numLeft);
+      numbersLeft = [];
+      numbersRight = [];
+      adding = false;
+    } else if (subtract == true) {
+      numLeft -= numRight
+      $(".numScreen").text(numLeft);
+      numbersLeft = [];
+      numbersRight = [];
+      subtract = false;
+    } else if (multiply == true) {
+      // result = numRight * numLeft;
+      numLeft *= numRight;
+      $(".numScreen").text(numLeft);
+      numbersLeft = [];
+      numbersRight = [];
+      multiply = false;
+    } else if (divide == true) {
+      // result = numLeft / numRight;
+      numLeft /= numRight;
+      $(".numScreen").text(numLeft);
+      numbersLeft = [];
+      numbersRight = [];
+      divide = false;
+    }
+  });
+
+  // Clear operation
+  $("#clear").click(function() {
+    $(".numScreen").text(0);
+    adding = false;
+    subtract = false;
+    multiply = false;
+    divide = false;
+    numRight = 0;
+    numLeft = 0;
+    // result = 0;
+    numbersLeft = [];
+    numbersRight = [];
+  });
+
+};
+
+$(document).ready(main);
